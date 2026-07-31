@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14332d" />
+    <title>Greek Path — Learn Greek daily</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Greek Path home">Greek Path</a>
+        <p id="streak" class="streak" aria-live="polite">0 day streak</p>
+      </header>
+
+      <section id="top" class="hero">
+        <p class="eyebrow">Modern Greek · a few minutes a day</p>
+        <h1>Small steps. Real Greek.</h1>
+        <p>Build everyday vocabulary, recognize the alphabet, and practice useful phrases.</p>
+        <div class="progress-card">
+          <div class="progress-label"><span>Today’s progress</span><strong id="progress-text">0 / 3</strong></div>
+          <div class="progress-track" aria-label="Today's lesson progress"><span id="progress-bar"></span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="lesson-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">Start here</p><h2 id="lesson-heading">Your lessons</h2></div>
+          <button id="reset-progress" class="text-button" type="button">Reset progress</button>
+        </div>
+        <div id="lesson-list" class="lesson-list"></div>
+      </section>
+
+      <section id="practice" class="practice hidden" aria-labelledby="practice-heading">
+        <p class="eyebrow" id="lesson-label">Lesson</p>
+        <h2 id="practice-heading">Quick practice</h2>
+        <div class="question-card">
+          <p id="prompt" class="prompt"></p>
+          <div id="answers" class="answers"></div>
+          <p id="feedback" class="feedback" aria-live="polite"></p>
+          <button id="next-question" class="primary-button hidden" type="button">Next</button>
+        </div>
+      </section>
+    </main>
+    <footer>Made for steady, low-pressure learning.</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
