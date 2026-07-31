@@ -2,13 +2,13 @@
 
 ## Goal
 
-Create a fast, friendly Modern Greek practice app for a single learner that works entirely on GitHub Pages. The learning experience should favor short, repeatable sessions over a large course catalog.
+Create a fast, friendly Modern Greek course for a true beginner that works entirely on GitHub Pages. The learning experience should teach sounds and context before recall quizzes or grammar labels.
 
 ## Product principles
 
 - Static-first: HTML, CSS, JavaScript, and content files only.
-- Useful language first: phrases for greetings, food, travel, and everyday conversation.
-- Short feedback loops: 3–8 prompts per lesson and a clear next step.
+- Sound and context first: introduce the alphabet with audio before presenting Greek-only prompts.
+- Picture-led lessons: introduce meaning through original scenes, then use translation sparingly as support.
 - Private by default: browser-only progress, no account required.
 - Accessible and mobile-first: large touch targets, keyboard support, readable Greek text.
 
@@ -16,13 +16,13 @@ Create a fast, friendly Modern Greek practice app for a single learner that work
 
 ### 1. Learning loop — complete starter
 
-- Lesson picker, three starter lessons, multiple-choice practice, feedback, and local progress.
-- Responsive single-page interface with no dependencies.
+- Welcome lesson that starts with the Greek alphabet, plain-English sound cues, and device speech synthesis.
+- A progressive course path; no quiz is shown before the learner has heard the relevant sounds.
 
 ### 2. Content foundation
 
 - Move lessons into `content/lessons.json` with fields for Greek, transliteration, English, topic, and audio URL.
-- Add the Greek alphabet and pronunciation mini-course.
+- Complete the Greek alphabet and pronunciation mini-course, including letter combinations and accent marks.
 - Build 20 everyday lessons across greetings, café, directions, shopping, family, and common verbs.
 - Review all learner-facing Greek with a native speaker or qualified teacher.
 
@@ -30,7 +30,7 @@ Create a fast, friendly Modern Greek practice app for a single learner that work
 
 - Add flashcards, Greek-to-English and English-to-Greek prompts, and typed answers with normalization for accents.
 - Add spaced review using a small browser-stored queue (new, learning, due, mastered).
-- Add optional text-to-speech only where browser voices pronounce Greek reliably; use recorded audio otherwise.
+- Replace device speech synthesis with native-speaker recordings for every teachable word and phrase. Keep the device voice only as a fallback.
 
 ### 4. Polish and launch
 

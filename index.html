@@ -3,47 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#14332d" />
-    <title>Greek Path — Learn Greek daily</title>
+    <meta name="theme-color" content="#173f3a" />
+    <title>Greek Path — Learn Greek by listening</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <header class="topbar">
-        <a class="brand" href="#top" aria-label="Greek Path home">Greek Path</a>
-        <p id="streak" class="streak" aria-live="polite">0 day streak</p>
-      </header>
-
+    <main class="shell">
+      <header class="topbar"><a class="brand" href="#top">Greek Path</a><div class="top-progress"><span id="progress-label">0 of 30 lessons</span><button id="reset" type="button">Reset</button></div></header>
       <section id="top" class="hero">
-        <p class="eyebrow">Modern Greek · a few minutes a day</p>
-        <h1>Small steps. Real Greek.</h1>
-        <p>Build everyday vocabulary, recognize the alphabet, and practice useful phrases.</p>
-        <div class="progress-card">
-          <div class="progress-label"><span>Today’s progress</span><strong id="progress-text">0 / 3</strong></div>
-          <div class="progress-track" aria-label="Today's lesson progress"><span id="progress-bar"></span></div>
-        </div>
+        <div><p class="eyebrow">Modern Greek · sound first</p><h1>Learn Greek the way it is heard.</h1><p id="next-description" class="lede">Begin with the alphabet. Hear a sound, say it back, then use it in context.</p><button id="start-course" class="primary" type="button">Start lesson 1</button></div>
+        <div class="hero-art" aria-hidden="true"><span>Α</span><span>α</span><i>hear<br>say<br>understand</i></div>
       </section>
-
-      <section aria-labelledby="lesson-heading">
-        <div class="section-heading">
-          <div><p class="eyebrow">Start here</p><h2 id="lesson-heading">Your lessons</h2></div>
-          <button id="reset-progress" class="text-button" type="button">Reset progress</button>
-        </div>
-        <div id="lesson-list" class="lesson-list"></div>
+      <section id="player" class="player hidden" aria-labelledby="lesson-title">
+        <div class="player-bar"><button id="close-player" class="plain-button" type="button">← Course</button><span id="step-label">Listen</span><span id="step-count">1 / 3</span></div>
+        <div id="scene" class="scene"><span id="scene-emoji" aria-hidden="true">👋</span></div>
+        <div class="lesson-copy"><p id="unit-label" class="eyebrow">Unit 1</p><h2 id="lesson-title"></h2><p id="greek" class="greek"></p><p id="transliteration" class="transliteration"></p><p id="translation" class="translation"></p><button id="listen" class="listen-button" type="button">▶ Listen</button><p id="audio-status" class="audio-status" aria-live="polite"></p></div>
+        <div id="practice" class="practice hidden"><p class="eyebrow">Check your understanding</p><h3 id="practice-prompt"></h3><div id="choices" class="choices"></div><p id="feedback" aria-live="polite"></p></div>
+        <div class="controls"><button id="back" class="secondary" type="button">Back</button><button id="next" class="primary" type="button">I heard it — next</button></div>
       </section>
-
-      <section id="practice" class="practice hidden" aria-labelledby="practice-heading">
-        <p class="eyebrow" id="lesson-label">Lesson</p>
-        <h2 id="practice-heading">Quick practice</h2>
-        <div class="question-card">
-          <p id="prompt" class="prompt"></p>
-          <div id="answers" class="answers"></div>
-          <p id="feedback" class="feedback" aria-live="polite"></p>
-          <button id="next-question" class="primary-button hidden" type="button">Next</button>
-        </div>
-      </section>
+      <section id="course" class="course" aria-labelledby="course-title"><div class="section-heading"><div><p class="eyebrow">Course map</p><h2 id="course-title">A complete beginner path</h2></div><p>Six units · 30 short lessons</p></div><div id="unit-list" class="unit-list"></div></section>
     </main>
-    <footer>Made for steady, low-pressure learning.</footer>
-    <script src="app.js"></script>
+    <footer>Audio uses your device’s Greek voice. Native-speaker recordings are the next production upgrade.</footer>
+    <script src="course.js"></script><script src="app.js"></script>
   </body>
 </html>
