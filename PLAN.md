@@ -57,3 +57,7 @@ Create a fast, friendly Modern Greek course for a true beginner that works entir
 ## Definition of a good first release
 
 Twenty short lessons, alphabet basics, four exercise types, simple spaced review, and progress that survives normal browser restarts — all under a lightweight static site with no sign-in.
+
+## Known issues
+
+- Alphabet cards currently pass both the uppercase and lowercase glyphs (for example, `Α α`) to device speech synthesis, so the voice repeats the letter name. Keep both forms in the display, but send one Greek letter name (for example, `άλφα`) to the audio function.
