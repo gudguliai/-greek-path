@@ -4,11 +4,20 @@
 
 import * as Speech from 'expo-speech';
 
+// Alphabet cards display both glyph forms ("Α α"). Speaking both makes the
+// voice repeat the letter name. Detect a single-letter pair and speak only
+// the first form (same letter name either way).
+export function speechText(greek: string): string {
+  const m = greek.match(/^(\p{L})\s+(\p{L})$/u);
+  return m ? m[1] : greek;
+}
+
 export function speakGreek(text: string, rate = 0.68): Promise<void> {
+  const spoken = speechText(text);
   return new Promise((resolve) => {
     try {
       stopSpeaking();
-      Speech.speak(text, {
+      Speech.speak(spoken, {
         language: 'el-GR',
         rate,
         onDone: () => resolve(),
