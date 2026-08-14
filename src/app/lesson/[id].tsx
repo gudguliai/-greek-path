@@ -51,7 +51,7 @@ export default function LessonScreen() {
     setChecked(true);
     setWasCorrect(correct);
     recordReview(card.id, correct);
-    if (correct && !isLastCard) {
+    if (correct && isLastCard) {
       // Only complete the lesson at the final card's check
       markLessonComplete(index);
     }

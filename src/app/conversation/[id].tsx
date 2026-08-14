@@ -149,10 +149,10 @@ export default function ConversationScreen() {
       {feedback && <Text style={styles.feedback}>{feedback}</Text>}
 
       <View style={styles.controls}>
-        {phase === 'listen' && (
+        {phase === 'listen' && !isLastStep && (
           <Pressable
             style={({ pressed }) => [styles.primary, styles.flex, pressed && styles.pressed]}
-            onPress={() => setPhase(isLearnerStep ? 'repeat' : 'listen')}
+            onPress={() => (isLearnerStep ? setPhase('repeat') : advance())}
           >
             <Text style={styles.primaryText}>{isLearnerStep ? 'It’s my turn' : 'Continue'}</Text>
           </Pressable>

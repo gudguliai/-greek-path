@@ -62,7 +62,8 @@ export function normalizeGreek(input: string): string {
     .replace(/[\u038C\u03CC]/g, 'ο')
     .replace(/[\u038E\u03CD]/g, 'υ')
     .replace(/[\u038F\u03CE]/g, 'ω')
-    .replace(/[\u0390\u03B0]/g, 'υ')
+    .replace(/[\u0390]/g, 'ι') // ΐ (iota dialytika+tonos)
+    .replace(/[\u03B0]/g, 'υ') // ΰ (upsilon dialytika+tonos)
     .replace(/\s+/g, ' ')
     .trim();
 }

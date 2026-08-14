@@ -10,7 +10,7 @@ export default function HomeScreen() {
   const streak = useProgress((s) => s.streak);
   const review = useProgress((s) => s.review);
 
-  const doneCount = completed.length;
+  const doneCount = completed.filter((i) => i < flatLessons.length).length;
   const dueCount = Object.values(review).filter((r) => r.due <= new Date().toISOString().slice(0, 10)).length;
 
   const nextLesson = flatLessons.find((l) => !completed.includes(l.globalIndex) && (l.globalIndex === 0 || completed.includes(l.globalIndex - 1)));
