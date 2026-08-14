@@ -82,7 +82,13 @@ export default function LessonScreen() {
       <Stack.Screen options={{ title: lesson.title }} />
       <View style={styles.bar}>
         <Text style={styles.stepLabel}>{phase === 'listen' ? 'Listen and repeat' : 'A quick check'}</Text>
-        <Text style={styles.stepCount}>{phase === 'listen' ? `${cardIndex + 1} / ${lesson.cards.length}` : 'Done'}</Text>
+        {phase === 'listen' ? (
+          <Text style={styles.stepCount}>{cardIndex + 1} / {lesson.cards.length}</Text>
+        ) : (
+          <Pressable style={({ pressed }) => pressed && styles.pressed} onPress={finishLesson} hitSlop={8}>
+            <Text style={styles.doneText}>Done ✓</Text>
+          </Pressable>
+        )}
       </View>
 
       {phase === 'listen' ? (
@@ -153,6 +159,7 @@ const styles = StyleSheet.create({
   bar: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: spacing.md },
   stepLabel: { fontSize: 12, fontWeight: '800', color: '#8b5a0b', letterSpacing: 1, textTransform: 'uppercase' },
   stepCount: { fontSize: 13, fontWeight: '800', color: palette.muted },
+  doneText: { fontSize: 13, fontWeight: '800', color: palette.mintDeep },
   scene: { height: 120, borderRadius: radii.lg, backgroundColor: palette.goldSoft, alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md },
   sceneEmoji: { fontSize: 56 },
   unitLabel: { color: '#657871', fontSize: 12, fontWeight: '800', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 6 },

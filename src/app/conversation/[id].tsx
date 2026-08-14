@@ -1,4 +1,4 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { router, Stack, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
@@ -54,6 +54,7 @@ export default function ConversationScreen() {
     setPhase('listen');
     if (isLastStep) {
       markLessonComplete(30 + conv.unit - 1); // conversations beyond lessons
+      router.push('/');
       return;
     }
     setStepIndex((i) => i + 1);
