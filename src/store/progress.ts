@@ -64,6 +64,7 @@ export function normalizeGreek(input: string): string {
     .replace(/[\u038F\u03CE]/g, 'ω')
     .replace(/[\u0390]/g, 'ι') // ΐ (iota dialytika+tonos)
     .replace(/[\u03B0]/g, 'υ') // ΰ (upsilon dialytika+tonos)
+    .replace(/[!?;:.,…«»"'()\-–—]/g, ' ') // punctuation -> space (so "Γεια σου!" matches "γεια σου")
     .replace(/\s+/g, ' ')
     .trim();
 }
