@@ -1,4 +1,4 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { router, Stack, useLocalSearchParams } from 'expo-router';
 import { useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -59,9 +59,15 @@ export default function LessonScreen() {
 
   const finishLesson = () => {
     markLessonComplete(index);
-    setChecked(false);
-    setCardIndex(0);
-    setPhase('listen');
+    if (isLastLesson) {
+      setChecked(false);
+      setCardIndex(0);
+      setPhase('listen');
+      router.push('/');
+      return;
+    }
+    // Advance to the next lesson instead of re-showing this one.
+    router.push(`/lesson/${index + 1}`);
   };
 
   const distractors = useMemo(() => {
